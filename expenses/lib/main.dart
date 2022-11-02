@@ -16,8 +16,10 @@ class ExpensesApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Verção Inicial')
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Suas despesas"),
+      ),
     );
   }
 }

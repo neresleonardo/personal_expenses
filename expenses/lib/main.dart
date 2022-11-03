@@ -91,9 +91,12 @@ class MyHomePage extends StatelessWidget {
                 TextField(
                   decoration: InputDecoration(labelText: 'Valor'),
                 ),
-                ElevatedButton(
-                  child: Text('Nova Transação'),
-                  onPressed: () {},
+                Container(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    child: Text('Nova Transação'),
+                    onPressed: () {},
+                  ),
                 )
               ]),
             ),

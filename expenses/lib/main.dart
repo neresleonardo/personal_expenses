@@ -15,7 +15,7 @@ class ExpensesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: MyHomePage(),
-      );
+    );
   }
 }
 
@@ -32,6 +32,36 @@ class _MyHomePageState extends State<MyHomePage> {
       id: 't1',
       title: 'Novo Tênis de Corrida',
       value: 310.76,
+      date: DateTime.now().subtract(Duration(days: 5)),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Compras no Shooping',
+      value: 611.30,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Aluguel',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Faculdade',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
       date: DateTime.now(),
     ),
     Transaction(

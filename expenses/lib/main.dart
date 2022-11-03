@@ -14,6 +14,7 @@ class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -31,44 +32,14 @@ class _MyHomePageState extends State<MyHomePage> {
     Transaction(
       id: 't1',
       title: 'Novo Tênis de Corrida',
-      value: 310.76,
+      value: 40,
       date: DateTime.now().subtract(Duration(days: 5)),
     ),
     Transaction(
       id: 't2',
       title: 'Compras no Shooping',
-      value: 611.30,
+      value: 50,
       date: DateTime.now().subtract(Duration(days: 4)),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Aluguel',
-      value: 211.30,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Faculdade',
-      value: 211.30,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Conta de Luz',
-      value: 211.30,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Conta de Luz',
-      value: 211.30,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Conta de Luz',
-      value: 211.30,
-      date: DateTime.now(),
     ),
   ];
 
@@ -107,25 +78,29 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Despesas Pessoais'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () => _openTransactionFormModal(context),
+      backgroundColor:Color(0xff1a1625),
+      // appBar: AppBar(
+      //   title: const Text('Despesas Pessoais'),
+      //   actions: [
+      //     IconButton(
+      //       icon: const Icon(Icons.add),
+      //       onPressed: () => _openTransactionFormModal(context),
+      //     ),
+      //   ],
+      // ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Chart(_recentTransactions),
+              TransactionList(_transactions),
+            ],
           ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Chart(_recentTransactions),
-            TransactionList(_transactions),
-          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+         backgroundColor:Color(0xffFF79C6),
         child: const Icon(Icons.add),
         onPressed: () => _openTransactionFormModal(context),
       ),

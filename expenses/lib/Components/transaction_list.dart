@@ -34,6 +34,7 @@ class TransactionList extends StatelessWidget {
                 final tr = transactions[index];
 
                 return Card(
+                  color:Color(0xff483C67),
                   elevation: 5,
                   margin: EdgeInsets.symmetric(
                     vertical: 8,
@@ -41,19 +42,29 @@ class TransactionList extends StatelessWidget {
                   ),
                   child: ListTile(
                     leading: CircleAvatar(
+                      backgroundColor: Color(0xff191622),
                       radius: 30,
                       child: Padding(
                         padding: const EdgeInsets.all(10),
                         child: FittedBox(
-                          child: Text('R\$${tr.value}'),
+                          child: Text('R\$${tr.value}', 
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
                         ),
                       ),
                     ),
                     title: Text(
                       tr.title,
+                      style: TextStyle(
+                            color: Colors.white,
+                          )
                     ),
                     subtitle: Text(
                       DateFormat('d MMM y').format(tr.date),
+                      style: TextStyle(
+                            color: Colors.white,
+                          )
                     ),
                   ),
                 );

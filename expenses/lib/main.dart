@@ -49,6 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.add(newTransaction);
     });
+    // Fechando Modal
+    Navigator.of(context).pop();
   }
 
   _openTransactionFormModal(BuildContext context) {

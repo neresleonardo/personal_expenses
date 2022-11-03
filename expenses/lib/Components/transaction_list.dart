@@ -4,8 +4,9 @@ import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
+  final void Function(String) onRemove;
 
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.onRemove);
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,10 @@ class TransactionList extends StatelessWidget {
           ? Column(
               children: [
                 SizedBox(height: 20),
-                Text(
-                  'Nenhuma Transação Cadastrada',
-                ),
+                Text('Nenhuma Transação Cadastrada',
+                    style: TextStyle(
+                      color: Colors.white,
+                    )),
                 SizedBox(height: 20),
                 Container(
                   height: 200,
@@ -34,7 +36,7 @@ class TransactionList extends StatelessWidget {
                 final tr = transactions[index];
 
                 return Card(
-                  color:Color(0xff483C67),
+                  color: Color(0xff483C67),
                   elevation: 5,
                   margin: EdgeInsets.symmetric(
                     vertical: 8,
@@ -47,24 +49,25 @@ class TransactionList extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(10),
                         child: FittedBox(
-                          child: Text('R\$${tr.value}', 
-                          style: TextStyle(
-                            color: Colors.white,
-                          )),
+                          child: Text('R\$${tr.value}',
+                              style: TextStyle(
+                                color: Colors.white,
+                              )),
                         ),
                       ),
                     ),
-                    title: Text(
-                      tr.title,
-                      style: TextStyle(
-                            color: Colors.white,
-                          )
-                    ),
-                    subtitle: Text(
-                      DateFormat('d MMM y').format(tr.date),
-                      style: TextStyle(
-                            color: Colors.white,
-                          )
+                    title: Text(tr.title,
+                        style: TextStyle(
+                          color: Colors.white,
+                        )),
+                    subtitle: Text(DateFormat('d MMM y').format(tr.date),
+                        style: TextStyle(
+                          color: Colors.white,
+                        )),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () => onRemove(tr.id),
+                      color: Color(0xffE96379),
                     ),
                   ),
                 );
